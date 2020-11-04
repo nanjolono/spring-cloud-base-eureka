@@ -5,12 +5,10 @@
       <list>
         <option value="$PROJECT_DIR$/eureka8000/pom.xml" />
         <option value="$PROJECT_DIR$/consumer8080/pom.xml" />
-        <option value="$PROJECT_DIR$/eureka8200/pom.xml" />
-        <option value="$PROJECT_DIR$/eureka8100/pom.xml" />
         <option value="$PROJECT_DIR$/provider8081/pom.xml" />
-        <option value="$PROJECT_DIR$/provider8082/pom.xml" />
-        <option value="$PROJECT_DIR$/provider8083/pom.xml" />
         <option value="$PROJECT_DIR$/zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/config/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
       </list>
     </option>
   </component>
