@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/consumer8080/consumer8080.iml" filepath="$PROJECT_DIR$/consumer8080/consumer8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka8000/eureka8000.iml" filepath="$PROJECT_DIR$/eureka8000/eureka8000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka8100/eureka8100.iml" filepath="$PROJECT_DIR$/eureka8100/eureka8100.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka8200/eureka8200.iml" filepath="$PROJECT_DIR$/eureka8200/eureka8200.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider8081/provider8081.iml" filepath="$PROJECT_DIR$/provider8081/provider8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider8082/provider8082.iml" filepath="$PROJECT_DIR$/provider8082/provider8082.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider8083/provider8083.iml" filepath="$PROJECT_DIR$/provider8083/provider8083.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul/zuul.iml" filepath="$PROJECT_DIR$/zuul/zuul.iml" />
+    </modules>
+  </component>
+</project>
