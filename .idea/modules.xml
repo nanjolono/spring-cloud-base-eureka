@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/authentication/authentication.iml" filepath="$PROJECT_DIR$/authentication/authentication.iml" />
       <module fileurl="file://$PROJECT_DIR$/config/configServer.iml" filepath="$PROJECT_DIR$/config/configServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/consumer8080/consumer8080.iml" filepath="$PROJECT_DIR$/consumer8080/consumer8080.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka8000/eureka8000.iml" filepath="$PROJECT_DIR$/eureka8000/eureka8000.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
-      <module fileurl="file://$PROJECT_DIR$/provider8081/provider8081.iml" filepath="$PROJECT_DIR$/provider8081/provider8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pay/pay.iml" filepath="$PROJECT_DIR$/pay/pay.iml" />
     </modules>
   </component>
 </project>

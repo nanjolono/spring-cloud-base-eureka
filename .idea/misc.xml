@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/zuul/pom.xml" />
         <option value="$PROJECT_DIR$/config/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/pay/pom.xml" />
+        <option value="$PROJECT_DIR$/authentication/pom.xml" />
       </list>
     </option>
   </component>

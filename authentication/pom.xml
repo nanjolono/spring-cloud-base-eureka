@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nanjolono</groupId>
-	<artifactId>gateway</artifactId>
+	<artifactId>authentication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gateway</name>
+	<name>authentication</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

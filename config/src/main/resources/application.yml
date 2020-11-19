@@ -6,6 +6,6 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/nanjo/spring-cloud-config.git
-          username: nanjolono
-          password: password
+          uri: https://gitee.com/nanjo/spring-cloud-config-server.git
+          username: nanjolono@outlook.com
+          password: z9426464
