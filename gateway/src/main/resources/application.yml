@@ -5,7 +5,22 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8000/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
 
 spring:
   application:
     name: nanjolono-zuul-gateway
+
+zuul:
+  routes:
+    NANJOLONO-PROVIDER-8081: /ipay/**
+  ignored-services: '*' #排除基于Eureka路由
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: routes

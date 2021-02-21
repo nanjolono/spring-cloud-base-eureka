@@ -14,11 +14,9 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class WxPayServiceImpl implements WxPayService {
-    @Autowired
-    WxPayBo wxPayBo;
+
     @Override
     public Object wxJsPay() {
-        String s = wxPayBo.toString();
         return "Hello World";
     }
 }
