@@ -16,8 +16,23 @@ spring:
 
 zuul:
   routes:
-    NANJOLONO-PROVIDER-8081: /ipay/**
+    nanjolono-provider-8081: /ipay/** # 路由的 id
   ignored-services: '*' #排除基于Eureka路由
+
+ribbon:
+  ConnectTimeout: 120000 # 连接超时时间(ms)
+  ReadTimeout: 30000 # 通信超时时间(ms)
+  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 2 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 1 # 同一实例的重试次数
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1200000 # 熔断超时时长：6000ms
 
 management:
   endpoints:

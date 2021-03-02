@@ -8,11 +8,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>./pay</module>
+        <module>./provider</module>
         <module>./gateway</module>
-        <module>./eureka8000</module>
-        <module>./consumer8080</module>
-        <module>./config</module>
+        <module>./eureka</module>
+        <module>./consumer</module>
+        <module>./configServer</module>
         <module>./authentication</module>
     </modules>
 </project>

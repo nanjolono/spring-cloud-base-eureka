@@ -3,7 +3,7 @@ server:
 spring:
   cloud:
     config:
-      uri: http://localhost:9999
+      uri: http://172.17.0.3:9999
       label: master
       name: application-provider-config
       profile: dev
