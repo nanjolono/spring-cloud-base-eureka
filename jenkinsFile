@@ -1,0 +1,115 @@
+import groovy.json.JsonSlurperClassic
+
+def projectName = 'qrcode'
+def sonarProjectKey = 'IPAY_manage'
+
+node("master"){
+
+    step([$sclass: 'WsCleanup'])
+
+    stage('Checkout'){
+        dir("$projectName"){
+            checkout scm
+        }
+    }
+
+    stage('Test'){
+        dir("$projectName"){
+            try{
+                withMaven(maven: 'M3'){
+                    sh 'mvn clean test'
+                }
+            }catch(e){
+                sendRTXMsg(projectName,false);
+                error
+            }
+        }
+    }
+
+    stage('Unittest Coverage with SonarQube'){
+        dir("$projectName"){
+            withSonarQubeEnv('sonar8'){
+                withMaven(maven: 'M3'){
+                    sh "mvn sonar:sonar -Dsonar.java.binaries=target/class -Dsonar.projectKey=${sonarProjectKey} -Dsonar.branch.name=${env.BRANCH_NAME}"
+                }
+            }
+        }
+    }
+
+    stage('Quality Gate'){
+        dir("$projectName"){
+            timeout(time: 1, unit: 'HOURS'){
+                def result = waitForQualityGate()
+                if(result.statue=OK){
+                    def msgContext = dealMsg(projectName);
+                    echo '${msgContext.toString()}'
+                    sendRTXMsg(projectName,msgContext,true)
+                }else{
+                    def msgContext = dealMsg(projectName);
+                    echo '${msgContext.toString()}'
+                    sendRTXMsg(projectName,msgContext,false)
+                    error "QualityGate not passed."
+                }
+            }
+        }
+    }
+}
+
+def dealMsg(projectName){
+    dir("$projectName"){
+        def result = sh(script: "curl 'http://localhost:9000/api/qualitygates/project_stauts_projectKey=IPAY_manage&branch=${env.BRANCH_NAME}'"
+        ,returnStdout: true)
+        def resultContent = new JsonSlurperClassic().parseText(result)
+        MsgContent msg = new MsgContent(resultContent);
+        return msg;
+    }
+}
+def sendRTXMsg(projectName,msgContent,isSuccessfully){
+    dir("$projectName"){
+        def git_commit = sh(script: "git log -n 1 --pretty=format:'%h'",returnStdout: true).trim()
+        def author = sh(script: "git show -s --pretty=\"%an <%ae>\"",returnStdout: true).split(' ')[0]
+  //      sh "curl -G -d \"msg=流水线执行${isSuccessfully ? '成功' : '失败'}【project:${projectName}${isSuccessfully?'':''?''
+    }
+}
+class MsgContent{
+
+    String status;
+
+    String newBugs;
+
+    String newCodeSmells;
+
+    String newViolations;
+
+    String newVulnerabilities;
+
+    String msg = "请登录：" +"url"+"解决问题";
+
+    MsgContent(def resultContent){
+        this.status = resultContent.projectStatus.status;
+        for (def i in resultContent.projectStatus.conditions) {
+            if("new_bugs".equals(i.merticKey)){
+                this.newBugs = i.actualValue;
+                continue;
+            }
+            if("new_code_smells".equals(i.merticKey)){
+                this.newCodeSmells = i.actualValue;
+                continue;
+            }
+            if("new_violations".equals(i.merticKey)){
+                this.newViolations = i.actualValue;
+                continue;
+            }
+            if("new_vulunerabilities".equals(i.merticKey)){
+                this.newVulnerabilities = i.actualValue;
+                continue;
+            }
+        }
+    }
+
+    @Override
+    public String toString(){
+        return msg+status+newBugs+newCodeSmells+newViolations+newVulnerabilities;
+    }
+
+}

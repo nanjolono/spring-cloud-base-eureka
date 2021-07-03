@@ -1,13 +1,12 @@
 package com.nanjolono.provider8081.controller;
 
-import com.nanjolono.provider8081.bean.Depart;
-import com.nanjolono.provider8081.bean.po.WxPayBo;
-import com.nanjolono.provider8081.service.impl.DepartServiceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 import java.util.List;
@@ -21,8 +20,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/provider/depart")
 public class DepartController {
-    @Autowired
-    private DepartServiceImpl service;
     @Autowired
     private DiscoveryClient client;
 
@@ -42,30 +39,6 @@ public class DepartController {
         }
         return services;
     }
-    @PostMapping("/save")
-    public boolean saveHandle(@RequestBody Depart depart){
-        depart.setDbase("test");
-        return service.saveDepart(depart);
-    }
 
-    @DeleteMapping("/del/{id}")
-    public boolean removeHandle(@PathVariable("id") int id){
-        return service.removeDepartById(id);
-    }
 
-    @PutMapping("/update")
-    public boolean modifyHandle(@RequestBody Depart depart){
-        depart.setDbase("test");
-        return service.modifyDepart(depart);
-    }
-
-    @GetMapping("/get/{id}")
-    public Depart getDepartHandle(@PathVariable("id") int id){
-        return service.getDepartById(id);
-    }
-
-    @GetMapping("list")
-    public List<Depart> listAllDepartsHandle(){
-        return service.listAllDeparts();
-    }
 }
