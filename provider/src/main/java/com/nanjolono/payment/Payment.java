@@ -1,4 +1,4 @@
-package com.nanjolono.provider8081;
+package com.nanjolono.payment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 @EnableDiscoveryClient
 @SpringBootApplication
 @Component
-public class Provider8081Application {
+public class Payment {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Provider8081Application.class, args);
+		SpringApplication.run(Payment.class, args);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.nanjolono.provider8081;
+package com.nanjolono.payment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

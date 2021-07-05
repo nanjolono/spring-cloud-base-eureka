@@ -1,4 +1,4 @@
-package com.nanjolono.provider8081.controller;
+package com.nanjolono.payment.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

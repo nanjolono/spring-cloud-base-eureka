@@ -1,12 +1,8 @@
-package com.nanjolono.provider8081.controller;
+package com.nanjolono.payment.controller;
 
-import org.junit.Before;
 import org.openjdk.jmh.annotations.*;
 
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.*;
 
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
